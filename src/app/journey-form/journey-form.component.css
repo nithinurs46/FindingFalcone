@@ -1,0 +1,46 @@
+  table {
+    width: 100%;
+    
+  }
+
+  .mat-grid-tile .mat-figure {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: relative;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+    padding-left: 0px;
+    padding-right:0px
+}
+td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type, th.mat-header-cell:last-of-type{
+    padding-left: 0px;
+    padding-right:0px
+}
+
+.buttonRow{
+  /*margin-left: -110px;
+  margin-bottom: 5px;
+  margin-top:120px;*/
+}
+.inline-block {
+  display: inline-block;
+}
+
+tr.mat-row {
+  height: 32px !important;
+}
+
+.btn-primary  {
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 14px;
+  background-color: #2828ad;
+}

@@ -1,0 +1,45 @@
+<mat-card>
+    <div class="example-button-row">
+        <button mat-raised-button color="primary" [routerLink]="['/solve']">Solve Problem</button>
+    </div>
+</mat-card>
+<mat-card>
+    <mat-accordion multi="true">
+        <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h6>Vehicles</h6>
+                </mat-panel-title>
+                <mat-panel-description>
+                    <h6>Displays the available vehicles</h6>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <img class="img-fluid rounded mx-auto d-block" alt="Available Vehicles" src="assets/images/vehicles.jpg">
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h6> Hideouts</h6>
+                </mat-panel-title>
+                <mat-panel-description>
+                    <h6> Displays the available hideouts</h6>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <img class="img-fluid rounded mx-auto d-block" alt="Available Planets" src="assets/images/hideouts.JPG">
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h6>Problem</h6>
+                </mat-panel-title>
+                <mat-panel-description>
+                    <h6>Finding Falcon</h6>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>King Shan has received intelligence that Al Falcone is in hiding in one of these 6 planets - DonLon, Enchai,
+                Jebing, Sapir, Lerbin & Pingasor. However he has limited resources at his disposal & can send his army to
+                only 4 of these planets. Your coding problem is to help King Shan find Al Falcone.</p>
+        </mat-expansion-panel>
+    </mat-accordion>
+</mat-card>

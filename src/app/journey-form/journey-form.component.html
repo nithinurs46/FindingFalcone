@@ -1,0 +1,106 @@
+<div class="row" style="margin: 5px">
+    <div class="col-sm-4">
+        <header>
+            <h5>Finding Falcone!</h5>
+            <h6>Select planets and vehicles you want to search in:</h6>
+        </header>
+        <form [formGroup]="falconeForm">
+            <section>
+                <app-journey (formReady)="addFormControl('1', $event)" [allPlanets]="planets" [planet]="remainingPlanets" [vehicle]="vehicles"
+                    [count]="1" (journeyPath)=updateJourney($event)></app-journey>
+                <app-journey (formReady)="addFormControl('2', $event)" [allPlanets]="planets" [planet]="remainingPlanets" [vehicle]="vehicles"
+                    [count]="2" (journeyPath)=updateJourney($event)></app-journey>
+                <app-journey (formReady)="addFormControl('3', $event)" [allPlanets]="planets" [planet]="remainingPlanets" [vehicle]="vehicles"
+                    [count]="3" (journeyPath)=updateJourney($event)></app-journey>
+                <app-journey (formReady)="addFormControl('4', $event)" [allPlanets]="planets" [planet]="remainingPlanets" [vehicle]="vehicles"
+                    [count]="4" (journeyPath)=updateJourney($event)></app-journey>
+                <br>
+            </section>
+            <article>
+                <div style="margin-bottom: 5px">
+                    <button mat-raised-button color="primary" [disabled]="disableFind" (click)="findFalcone()">Find Falcone</button>
+                    &nbsp;&nbsp;
+                    <button mat-raised-button color="primary" [routerLink]="['/solve']">Reset</button>
+                    &nbsp;&nbsp;
+                    <button type="button" class="btn btn-primary">
+                        Time Taken
+                        <span class="badge badge-light">{{timeTaken}}</span>
+                    </button>
+                </div>
+            </article>
+        </form>
+    </div>
+    <div class="col-sm-4">
+        <mat-card>
+            <h6>Available Planets</h6>
+            <table mat-table [dataSource]="planets">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="distance">
+                    <th mat-header-cell *matHeaderCellDef> Distance </th>
+                    <td mat-cell *matCellDef="let element"> {{element.distance}} </td>
+                </ng-container>
+
+
+                <tr mat-header-row *matHeaderRowDef="planetColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: planetColumns;"></tr>
+            </table>
+        </mat-card>
+    </div>
+    <div class="col-sm-4">
+        <mat-card>
+            <h6>Available Vehicles</h6>
+            <table small="true" mat-table [dataSource]="vehicles">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="total_no">
+                    <th mat-header-cell *matHeaderCellDef> Total
+                        <br>No </th>
+                    <td mat-cell *matCellDef="let element"> {{element.total_no}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="max_distance">
+                    <th mat-header-cell *matHeaderCellDef> Max
+                        <br>Distance </th>
+                    <td mat-cell *matCellDef="let element"> {{element.max_distance}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="speed">
+                    <th mat-header-cell *matHeaderCellDef> Speed </th>
+                    <td mat-cell *matCellDef="let element"> {{element.speed}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="vehicleColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: vehicleColumns;"></tr>
+
+            </table>
+            <tr mat-row></tr>
+            <tr mat-row></tr>
+        </mat-card>
+    </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="start start">
+    <div class="card" style="width: 100%;">
+        <div class="card-header">
+            <h6>Game Rules</h6>
+        </div>
+        <div class="card-body">
+            <p>
+                • There are 6 planets. But King Shan can send vehicles to search in only 4 at a time
+                <br> • All are at varying distances from Lengaburu
+                <br> • All have different ranges (maximum distance it can travel). If the range for a vehicle is lesser than
+                the distance to the planet, it cannot be chosen for going to the planet
+                <br> • All have different speed. Based on the distance to the planet and the speed of the vehicle, time taken
+                for the complete search should be shown
+                <br>
+                <br>
+            </p>
+        </div>
+    </div>
+</div>

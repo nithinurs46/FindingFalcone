@@ -1,0 +1,9 @@
+<mat-toolbar color="primary" class="header">
+    <h5>
+        <span style="font-size: 16px;">Finding Falcone</span>
+    </h5>
+    <span class="example-fill-remaining-space"></span>
+    <a href="https://www.geektrust.in/" style="color:white;font-size:12px" matTooltip="Navigate to GeekTrust page">GeekTrust</a>
+    &nbsp;
+    <mat-icon *ngIf="nav.visible" class="icon-style" matTooltip="Navigate to problem" (click)="navigateHome();">home</mat-icon>
+</mat-toolbar>

@@ -1,0 +1,36 @@
+<form [formGroup]="form">
+    <div class="row">
+        <div class="col">
+            <mat-form-field>
+                <mat-label>Planet {{count}}:</mat-label>
+                <mat-select *ngIf="!selectedPlanetName" formControlName="planetName">
+                    <mat-option *ngFor="let planet of planets" [value]="planet.name">
+                        {{planet.name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('planetName').hasError('required')">
+                    <p>Please select a planet</p>
+                </mat-error>
+                <input *ngIf="selectedPlanetName" matInput formControlName="selectedPlanetName">
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field>
+                <mat-label>Vehicle {{count}}:</mat-label>
+                <mat-select formControlName="vehicleName" (selectionChange)="onVehicleSelection()">
+                    <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.name" [disabled]="vehicle.total_no==0">
+                        {{vehicle.name}} ({{vehicle.total_no}})
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('vehicleName').hasError('required')">
+                    <p>Please select a vehicle</p>
+                </mat-error>
+            </mat-form-field>
+            <div class="error" *ngIf="showVehicleErrMsg">
+                <p style="color: red">
+                    {{errorMsg}}
+                </p>
+            </div>
+        </div>
+    </div>
+</form>

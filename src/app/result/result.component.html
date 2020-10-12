@@ -1,0 +1,20 @@
+<div class="data">
+        <h3>Finding Falcone!</h3>
+</div>
+<br>
+<article>
+        <div *ngIf="status=='success'" class="data">
+                <img class="img-fluid rounded mx-auto d-block" alt="Available Vehicles" src="assets/images/falcone.JPG">
+                <h4>Success! Congratulations on Finding Falcone. King Shan is mighty pleased.</h4>
+                <h4>Time Taken: {{timeTaken}}</h4>
+                <h4>Planet Found: {{planetFound}}</h4>
+        </div>
+        <div *ngIf="status=='false'" class="data">
+                <h4>Unable to find the falcone, please try again.</h4>
+                <h4>Time Taken: {{timeTaken}}</h4>
+        </div>
+</article>
+<br>
+<div class="data">
+        <button mat-raised-button color="primary" (click)="findFalconeAgain()">Start Again</button>
+</div>
